@@ -8,15 +8,19 @@ package repository.interfaces;
 /**
  *
  * @author marcus
+ * @param <T>
  */
-public interface GenericSqlGenerator<T> {
-    public String Index();
+public abstract class GenericSqlGenerator<T> {
     
-    public String Show(int id);
+    public abstract String Index();
     
-    public String Store(T data);
+    public abstract String Show(int id);
     
-    public String Update(T data);
+    public abstract String Store(T data);
     
-    public String Delete(int id);
+    public abstract String Update(int id, T data);
+    
+    public abstract String Delete(int id);
+    
+    
 }
