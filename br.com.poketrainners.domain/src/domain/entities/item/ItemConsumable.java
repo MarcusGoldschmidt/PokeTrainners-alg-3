@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain.entities.enuns;
+package domain.entities.item;
 
 /**
  *
  * @author marcus
  */
-public enum Status {
-    BURN,
-    FREEZE,
-    PARALYSIS,
-    POISON,
-    SLEEP,
-    CONFUSION,
+public class ItemConsumable extends Item{
+    
 }

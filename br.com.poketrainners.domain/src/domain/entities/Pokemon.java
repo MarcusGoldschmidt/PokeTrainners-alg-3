@@ -6,6 +6,7 @@
 package domain.entities;
 
 import domain.entities.enuns.Status;
+import domain.entities.enuns.Type;
 import domain.exceptions.OperacaoInvalidaExeception;
 import java.util.List;
 
@@ -14,39 +15,31 @@ import java.util.List;
  * @author marcus
  */
 public class Pokemon {
-    private int     PokemonId;
-    private String  Name;
-    private String  Description;
+    private int             PokemonId;
     
-    private int     Level;
-    private int     CurrentXp;
-    private int     XpToNextLevel;
+    private Player          PlayerOwner;
     
-    private int     HP;
-    private int     Attack;
-    private int     SpAtk;
-    private int     SpDef;
-    private int     Speed;
+    private String          Name;
+    private String          Description;
     
-    private List<Status> Status;
+    private int             Level;
+    private int             CurrentXp;
+    private int             XpToNextLevel;
+    
+    private int             HP;
+    private int             Attack;
+    private int             SpAtk;
+    private int             SpDef;
+    private int             Speed;
+    
+    private int             DefenseToCath;
+    
+    private Type            Type1;
+    private Type            Type2;
+    
+    private List<Status>    Status;
     
     private List<Hability> Habilitys;
-
-    public Pokemon(int PokemonId, String Name, String Description, int Level, int CurrentXp, int XpToNextLevel, int HP, int Attack, int SpAtk, int SpDef, int Speed, List<Status> Status, List<Hability> Habilitys) {
-        this.PokemonId = PokemonId;
-        this.Name = Name;
-        this.Description = Description;
-        this.Level = Level;
-        this.CurrentXp = CurrentXp;
-        this.XpToNextLevel = XpToNextLevel;
-        this.HP = HP;
-        this.Attack = Attack;
-        this.SpAtk = SpAtk;
-        this.SpDef = SpDef;
-        this.Speed = Speed;
-        this.Status = Status;
-        this.Habilitys = Habilitys;
-    }
 
     public int getPokemonId() {
         return PokemonId;
@@ -86,6 +79,14 @@ public class Pokemon {
 
     public void setCurrentXp(int CurrentXp) {
         this.CurrentXp = CurrentXp;
+    }
+
+    public int getXpToNextLevel() {
+        return XpToNextLevel;
+    }
+
+    public void setXpToNextLevel(int XpToNextLevel) {
+        this.XpToNextLevel = XpToNextLevel;
     }
 
     public int getHP() {
@@ -128,6 +129,14 @@ public class Pokemon {
         this.Speed = Speed;
     }
 
+    public int getDefenseToCath() {
+        return DefenseToCath;
+    }
+
+    public void setDefenseToCath(int DefenseToCath) {
+        this.DefenseToCath = DefenseToCath;
+    }
+
     public List<Status> getStatus() {
         return Status;
     }
@@ -135,9 +144,41 @@ public class Pokemon {
     public void setStatus(List<Status> Status) {
         this.Status = Status;
     }
+
+    public List<Hability> getHabilitys() {
+        return Habilitys;
+    }
+
+    public void setHabilitys(List<Hability> Habilitys) {
+        this.Habilitys = Habilitys;
+    }
     
     public boolean RemoveAbility(Hability data){
         return Habilitys.remove(data);
+    }
+
+    public Type getType1() {
+        return Type1;
+    }
+
+    public void setType1(Type Type1) {
+        this.Type1 = Type1;
+    }
+
+    public Type getType2() {
+        return Type2;
+    }
+
+    public void setType2(Type Type2) {
+        this.Type2 = Type2;
+    }
+
+    public Player getPlayerOwner() {
+        return PlayerOwner;
+    }
+
+    public void setPlayerOwner(Player PlayerOwner) {
+        this.PlayerOwner = PlayerOwner;
     }
     
     public boolean AddAbility(Hability newData) throws OperacaoInvalidaExeception{

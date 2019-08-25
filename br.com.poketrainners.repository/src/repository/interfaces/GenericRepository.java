@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain.entities;
-
-import domain.entities.enuns.ItemType;
+package repository.interfaces;
 
 /**
  *
  * @author marcus
+ * @param <T>
  */
-public class Item {
-    private int ItemId;
+public interface GenericRepository<T> {
+    public T Index();
     
-    private String Nome;
-    private String Description;
+    public T Show(int id);
     
-    private double Peso;
+    public T Store(T data);
     
-    private ItemType Type;
+    public T Update(T data);
+    
+    public T Delete(int id);
 }

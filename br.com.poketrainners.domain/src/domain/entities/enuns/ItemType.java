@@ -10,5 +10,8 @@ package domain.entities.enuns;
  * @author marcus
  */
 public enum ItemType {
-    
+    PokemonConsumable,
+    PlayerConsumable,
+    Insignia,
+    Pokeball
 }

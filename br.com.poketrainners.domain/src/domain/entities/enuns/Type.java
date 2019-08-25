@@ -10,5 +10,22 @@ package domain.entities.enuns;
  * @author marcus
  */
 public enum Type {
-    
+    NORMAL,
+    FIRE,
+    WATER,
+    GRASS,
+    ELETRIC,
+    ICE,
+    FIGHTING,
+    POISON,
+    GROUND,
+    FLYING,
+    PSYCHIC,
+    BUG,
+    ROCK,
+    GHOST,
+    DARK,
+    DRAGON,
+    STEEL,
+    FAIRY
 }

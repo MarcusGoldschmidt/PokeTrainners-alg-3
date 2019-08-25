@@ -3,17 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain.entities.enuns;
+package domain.entities;
+
+import java.util.List;
 
 /**
  *
  * @author marcus
+ * Type
+ * @param <T>
  */
-public enum Status {
-    BURN,
-    FREEZE,
-    PARALYSIS,
-    POISON,
-    SLEEP,
-    CONFUSION,
+public class Bag<T> {
+    protected int BagId;
+    
+    protected int MaxSize;
+    
+    protected List<T> Itens;
 }

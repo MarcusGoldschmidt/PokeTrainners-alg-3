@@ -18,6 +18,8 @@ public class Hability {
     private String          Name;
     private String          Description;
     
+    private double          Damage;
+    
     private Type            Type1;
     private Type            Type2;
     
@@ -31,7 +33,7 @@ public class Hability {
         this.Type2 = Type2;
         this.ApllyStatus = ApllyStatus;
     }
-
+    
     public int getHabilityID() {
         return HabilityID;
     }
@@ -79,7 +81,12 @@ public class Hability {
     public void setApllyStatus(List<Status> ApllyStatus) {
         this.ApllyStatus = ApllyStatus;
     }
-    
-    
-    
+
+    public double getDamage() {
+        return Damage;
+    }
+
+    public void setDamage(double Damage) {
+        this.Damage = Damage;
+    }
 }

@@ -3,20 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Helpers;
-
-import java.util.List;
+package helpers;
 
 /**
  *
  * @author marcus
- * Type
- * @param <T>
  */
-public class Bag<T> {
-    private int BagId;
+public class ItemFactory {
     
-    private int MaxSize;
-    
-    private List<T> Itens;
 }

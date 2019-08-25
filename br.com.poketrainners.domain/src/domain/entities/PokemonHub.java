@@ -5,7 +5,7 @@
  */
 package domain.entities;
 
-import Helpers.Bag;
+import java.util.List;
 
 /**
  *
@@ -13,4 +13,13 @@ import Helpers.Bag;
  */
 public class PokemonHub extends Bag<Pokemon>{
     
+    private Player  PlayerOwner;
+
+    public PokemonHub(Player player) {
+        this.PlayerOwner = player;
+    }
+    
+    public boolean Add(Pokemon data){
+        return this.Itens.add(data);
+    }
 }

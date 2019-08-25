@@ -5,8 +5,8 @@
  */
 package domain.entities;
 
-import Helpers.Bag;
-import com.sun.javafx.UnmodifiableArrayList;
+import domain.entities.item.Item;
+import domain.entities.item.Pokeball;
 import domain.exceptions.OperacaoInvalidaExeception;
 import java.util.Collections;
 import java.util.List;
@@ -16,14 +16,18 @@ import java.util.List;
  * @author marcus
  */
 public class Player {
+
     private int             PlayerId;
     private String          Name;
     private String          Description;
-    
+
     private Bag<Item>       Bag;
-    
-    private List<Pokemon>   Pokemonbag;
-    
+
+    private int             Level;
+
+    private List<Pokemon>   PokemonBag;
+    private PokemonHub      PokemonHub;
+
     private double Money;
 
     public Player(int PlayerId, String Name, String Description, Bag<Item> Bag, List<Pokemon> Pokemonbag, double Money) {
@@ -31,7 +35,7 @@ public class Player {
         this.Name = Name;
         this.Description = Description;
         this.Bag = Bag;
-        this.Pokemonbag = Pokemonbag;
+        this.PokemonBag = Pokemonbag;
         this.Money = Money;
     }
 
@@ -54,33 +58,59 @@ public class Player {
     public void setDescription(String Description) {
         this.Description = Description;
     }
+    
+    public double AddMoney(double valor) throws OperacaoInvalidaExeception {
+        if (valor < 0)
+            throw new OperacaoInvalidaExeception("Valor negativo não permitido");
+        this.Money += valor;
+        return this.Money;
+    }
+    
+    public double RemoveMoney(double valor) throws OperacaoInvalidaExeception {
+        if (valor < 0)
+            throw new OperacaoInvalidaExeception("Valor negativo não permitido");
+        this.Money -= valor;
+        return this.Money;
+    }
 
     public double getMoney() {
         return Money;
     }
-    
+
     public Bag<Item> getBag() {
         return Bag;
     }
 
     public List<Pokemon> getPokemonbag() {
-        return Collections.unmodifiableList(Pokemonbag);
-    }    
-
-    public boolean AddPokemonBag(Pokemon data) throws OperacaoInvalidaExeception{
-        if (this.Pokemonbag.toArray().length >= 6) {
-            throw new OperacaoInvalidaExeception("Só pode ter 6 Pokemons em mão");
-        }
-        
-        return this.Pokemonbag.add(data);
+        return Collections.unmodifiableList(PokemonBag);
     }
-    
-    public boolean RemovePokemonBag(Pokemon data) throws OperacaoInvalidaExeception{
-        if (this.Pokemonbag.toArray().length <= 0) {
+
+    public boolean AddPokemonBag(Pokemon data) throws OperacaoInvalidaExeception {
+        if (this.PokemonBag.toArray().length >= 6) {
+            return this.PokemonHub.Add(data);
+        }
+
+        return this.PokemonBag.add(data);
+    }
+
+    public boolean RemovePokemonBag(Pokemon data) throws OperacaoInvalidaExeception {
+        if (this.PokemonBag.toArray().length <= 0) {
             throw new OperacaoInvalidaExeception("Você não tem nenhum Pokemon");
         }
+
+        return this.PokemonBag.remove(data);
+    }
+
+    public boolean TryCathPokemon(Pokeball pokeball, Pokemon pokemon) {
+        double chance = (int) (Math.random() * 100);
         
-        return this.Pokemonbag.remove(data);
+        pokeball.setQuantidade(pokeball.getQuantidade() - 1);
+        
+        chance -= pokemon.getLevel() / 2;
+        chance -= pokemon.getDefenseToCath();
+        chance -= pokemon.getSpeed() / 10;
+        chance += this.Level / 2;
+        chance += pokeball.getPower();
+        return chance > 50;
     }
 }
-
