@@ -6,9 +6,9 @@
 package infraestruture;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Date;
 
 /**
  *
@@ -17,35 +17,36 @@ import java.util.Map;
 public class Mapper {
 
     /**
-     * @param obj
+     * @param methods
      * @return Map containing the attributes' names and it's values
      */
-    public static Map<String, Object> getAttributesMap(Object obj) {
+    public static ArrayList<String> getAttributesMap(Method[] methods) {
 
-        Map<String, Object> attributesMap = new HashMap<>();
-
-        Class<?> objClass = obj.getClass();
-        Method[] methods = objClass.getMethods();
+        ArrayList<String> attributes = new ArrayList<>();
 
         for (Method method : methods) {
             if (method.getName().startsWith("get")) {
                 String attributeName;
-                if (method.getReturnType() == void.class && method.getReturnType() != Collection.class) {
-                    // Chave estrangeira
-                    attributeName = method.getReturnType().getName() + "Id";
-                } else {
+                Class<?> data = method.getReturnType();
+                if (data == void.class) {
+                    continue;
+                } else if (data == short.class || data == int.class
+                        || data == boolean.class || data == float.class
+                        || data == double.class || data == Date.class
+                        || data == String.class) {
                     attributeName = getAttributeName(method.getName());
+                } else {
+                    // Chave estrangeira
+                    attributeName = getAttributeName(method.getName() + "Id");
                 }
-                try {
-                    Object value = method.invoke(obj);
-                    attributesMap.put(attributeName, value);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+
+                attributes.add(attributeName);
             }
         }
+        
+        attributes.remove(attributes.size() - 1);
 
-        return attributesMap;
+        return attributes;
     }
 
     private static String getAttributeName(String name) {

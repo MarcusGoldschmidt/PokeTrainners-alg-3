@@ -16,7 +16,7 @@ import javax.ws.rs.Path;
  *
  * @author marcus
  */
-@Path("v1/item")
+@Path("/v1/item")
 public class ItemController extends BaseCrudController<Item>{
     
     @Path("/")

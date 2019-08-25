@@ -22,5 +22,4 @@ public abstract class GenericSqlGenerator<T> {
     
     public abstract String Delete(int id);
     
-    
 }

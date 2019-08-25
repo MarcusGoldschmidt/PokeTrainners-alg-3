@@ -30,13 +30,15 @@ public class Player {
 
     private double Money;
 
-    public Player(int PlayerId, String Name, String Description, Bag<Item> Bag, List<Pokemon> Pokemonbag, double Money) {
+    public Player(int PlayerId, String Name, String Description, Bag<Item> Bag, List<Pokemon> PokemonBag, PokemonHub PokemonHub) {
         this.PlayerId = PlayerId;
         this.Name = Name;
         this.Description = Description;
         this.Bag = Bag;
-        this.PokemonBag = Pokemonbag;
-        this.Money = Money;
+        this.Level = 1;
+        this.PokemonBag = PokemonBag;
+        this.PokemonHub = PokemonHub;
+        this.Money = 500;
     }
 
     public int getPlayerId() {
@@ -47,16 +49,24 @@ public class Player {
         return Name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-
     public String getDescription() {
         return Description;
     }
 
-    public void setDescription(String Description) {
-        this.Description = Description;
+    public Bag<Item> getBag() {
+        return Bag;
+    }
+
+    public int getLevel() {
+        return Level;
+    }
+
+    public PokemonHub getPokemonHub() {
+        return PokemonHub;
+    }
+
+    public double getMoney() {
+        return Money;
     }
     
     public double AddMoney(double valor) throws OperacaoInvalidaExeception {
@@ -73,15 +83,7 @@ public class Player {
         return this.Money;
     }
 
-    public double getMoney() {
-        return Money;
-    }
-
-    public Bag<Item> getBag() {
-        return Bag;
-    }
-
-    public List<Pokemon> getPokemonbag() {
+    public List<Pokemon> getPokemonBag() {
         return Collections.unmodifiableList(PokemonBag);
     }
 
