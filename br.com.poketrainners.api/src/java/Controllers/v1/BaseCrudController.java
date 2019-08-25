@@ -5,7 +5,7 @@
  */
 package Controllers.v1;
 
-import repository.interfaces.GenericRepository;
+import repository.interfaces.IGenericRepository;
 
 /**
  *
@@ -14,7 +14,7 @@ import repository.interfaces.GenericRepository;
  */
 public abstract class BaseCrudController<T> extends BaseController{
     
-    private GenericRepository<T> Repository;
+    private IGenericRepository<T> Repository;
     
     public T Index() {
         return this.Repository.Index();

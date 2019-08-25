@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package infraestruture;
+package infraestruture.helpers;
 
 import java.util.ArrayList;
 import repository.interfaces.GenericSqlGenerator;
@@ -17,23 +17,22 @@ public class GenerateSql<T> extends GenericSqlGenerator<T> {
 
     private Class<T> Type;
 
-    private final String TableName;
+    protected final String TableName;
 
-    private final ArrayList<String> Atributes;
+    public final ArrayList<String> Atributes;
 
-    private String AtributesName = "";
+    protected String AtributesName = "";
 
-    private String AtributesReplace = "";
+    protected String AtributesReplace = "";
 
-    private String AtributesUpdate = "";
+    protected String AtributesUpdate = "";
 
     public GenerateSql(Class<T> type) {
         this.Type = type;
-        Class generic = Type;
 
-        TableName = generic.getSimpleName();
+        TableName = this.Type.getSimpleName();
 
-        Atributes = Mapper.getAttributesMap(generic.getMethods());
+        Atributes = Mapper.getAttributesMap(this.Type.getMethods());
         
         // Removendo PK
         for (int i = 0; i < Atributes.size(); i++) {
@@ -73,7 +72,6 @@ public class GenerateSql<T> extends GenericSqlGenerator<T> {
 
     @Override
     public String Store(T data) {
-
         return " INSERT INTO " + TableName
                 + " (" + AtributesName + ") "
                 + " VALUES (" + AtributesReplace

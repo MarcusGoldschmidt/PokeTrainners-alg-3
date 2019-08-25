@@ -7,7 +7,7 @@ package Controllers.v1;
 
 import domain.entities.Bag;
 import domain.entities.Player;
-import infraestruture.GenerateSql;
+import infraestruture.helpers.GenerateSql;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 

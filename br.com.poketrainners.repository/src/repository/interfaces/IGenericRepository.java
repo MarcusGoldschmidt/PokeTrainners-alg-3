@@ -10,7 +10,7 @@ package repository.interfaces;
  * @author marcus
  * @param <T>
  */
-public interface GenericRepository<T> {
+public interface IGenericRepository<T> {
     public T Index();
     
     public T Show(int id);

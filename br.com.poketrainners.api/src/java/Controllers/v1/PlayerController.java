@@ -11,7 +11,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import repository.interfaces.GenericRepository;
+import repository.interfaces.IGenericRepository;
 
 /**
  *
@@ -20,7 +20,7 @@ import repository.interfaces.GenericRepository;
 @Path("v1/player")
 public class PlayerController extends BaseCrudController<Player>{
     
-    private GenericRepository<Player> Repository;
+    private IGenericRepository<Player> Repository;
    
     @Path("/")
     @GET
