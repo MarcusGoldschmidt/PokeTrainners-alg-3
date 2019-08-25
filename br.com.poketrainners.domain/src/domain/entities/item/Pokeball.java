@@ -31,5 +31,4 @@ public class Pokeball extends Item {
         this.Quantidade = Quantidade;
     }
 
-      
 }

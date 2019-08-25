@@ -39,7 +39,7 @@ public class Pokemon {
     
     private List<Status>    Status;
     
-    private List<Hability> Habilitys;
+    private List<Hability>  Habilitys;
 
     public int getPokemonId() {
         return PokemonId;

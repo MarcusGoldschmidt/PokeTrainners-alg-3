@@ -102,7 +102,7 @@ public class Player {
     }
 
     public boolean TryCathPokemon(Pokeball pokeball, Pokemon pokemon) {
-        double chance = (int) (Math.random() * 100);
+        int chance = (int) (Math.random() * 100);
         
         pokeball.setQuantidade(pokeball.getQuantidade() - 1);
         
