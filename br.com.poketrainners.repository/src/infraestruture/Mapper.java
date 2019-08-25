@@ -6,6 +6,7 @@
 package infraestruture;
 
 import java.lang.reflect.Method;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,8 +28,14 @@ public class Mapper {
         Method[] methods = objClass.getMethods();
 
         for (Method method : methods) {
-            if (method.getName().startsWith("get") && method.getReturnType() != void.class) {
-                String attributeName = getAttributeName(method.getName());
+            if (method.getName().startsWith("get")) {
+                String attributeName;
+                if (method.getReturnType() == void.class && method.getReturnType() != Collection.class) {
+                    // Chave estrangeira
+                    attributeName = method.getReturnType().getName() + "Id";
+                } else {
+                    attributeName = getAttributeName(method.getName());
+                }
                 try {
                     Object value = method.invoke(obj);
                     attributesMap.put(attributeName, value);
@@ -42,6 +49,6 @@ public class Mapper {
     }
 
     private static String getAttributeName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return name.substring(3);
     }
 }

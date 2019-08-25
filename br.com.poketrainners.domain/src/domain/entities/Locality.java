@@ -15,6 +15,8 @@ public class Locality {
     private int             LocalityId;
     private String          Name;
     
+    private List<Locality>  Ways;
+    
     private List<Pokemon>   PokemonsAvailable;
     private List<Player>    Npcs;
 }

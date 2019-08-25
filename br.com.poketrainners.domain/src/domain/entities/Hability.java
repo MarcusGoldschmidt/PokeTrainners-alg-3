@@ -14,7 +14,7 @@ import java.util.List;
  * @author marcus
  */
 public class Hability {
-    private int             HabilityID;
+    private int             HabilityId;
     private String          Name;
     private String          Description;
     
@@ -26,7 +26,7 @@ public class Hability {
     private List<Status>    ApllyStatus;  
 
     public Hability(int HabilityID, String Name, String Description, Type Type1, Type Type2, List<Status> ApllyStatus) {
-        this.HabilityID = HabilityID;
+        this.HabilityId = HabilityID;
         this.Name = Name;
         this.Description = Description;
         this.Type1 = Type1;
@@ -35,11 +35,11 @@ public class Hability {
     }
     
     public int getHabilityID() {
-        return HabilityID;
+        return HabilityId;
     }
 
     public void setHabilityID(int HabilityID) {
-        this.HabilityID = HabilityID;
+        this.HabilityId = HabilityID;
     }
 
     public String getName() {
