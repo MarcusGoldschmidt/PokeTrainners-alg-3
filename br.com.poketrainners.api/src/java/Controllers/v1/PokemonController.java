@@ -6,8 +6,11 @@
 package Controllers.v1;
 
 import domain.entities.Pokemon;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import repository.interfaces.GenericRepository;
 
 /**
  *
@@ -15,36 +18,34 @@ import repository.interfaces.GenericRepository;
  */
 @Path("v1/pokemon")
 public class PokemonController extends BaseCrudController<Pokemon>{
-    
-    private GenericRepository<Pokemon> Repository;
 
     @Path("/")
-    @Override
+    @GET
     public Pokemon Index() {
-        return this.Repository.Index();
+        return super.Index();
     }
 
     @Path("/{id}")
-    @Override
+    @GET
     public Pokemon Show(int id) {
-        return this.Repository.Show(id);
+        return super.Show(id);
     }
 
     @Path("/")
-    @Override
+    @POST
     public Pokemon Store(Pokemon data) {
-         return this.Repository.Store(data);
+         return super.Store(data);
     }
 
     @Path("/")
-    @Override
+    @PUT
     public Pokemon Update(Pokemon data) {
-         return this.Repository.Update(data);
+         return super.Update(data);
     }
 
     @Path("/")
-    @Override
+    @DELETE
     public Pokemon Delete(int id) {
-         return this.Repository.Delete(id);
+         return super.Delete(id);
     }    
 }

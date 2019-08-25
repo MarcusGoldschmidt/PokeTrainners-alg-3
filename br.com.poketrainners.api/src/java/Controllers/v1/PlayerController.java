@@ -6,7 +6,12 @@
 package Controllers.v1;
 
 import domain.entities.Player;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import repository.interfaces.GenericRepository;
 
 /**
  *
@@ -15,5 +20,36 @@ import javax.ws.rs.Path;
 @Path("v1/player")
 public class PlayerController extends BaseCrudController<Player>{
     
-  
+    private GenericRepository<Player> Repository;
+   
+    @Path("/")
+    @GET
+    public Player Index() {
+        return super.Index();
+    }
+
+    @Path("/{id}")
+    @GET
+    public Player Show(int id) {
+        return super.Show(id);
+    }
+
+    @Path("/")
+    @POST
+    public Player Store(Player data) {
+         return super.Store(data);
+    }
+
+    @Path("/")
+    @PUT
+    public Player Update(Player data) {
+         return super.Update(data);
+    }
+
+    @Path("/")
+    @DELETE
+    public Player Delete(int id) {
+         return super.Delete(id);
+    }  
+    
 }
