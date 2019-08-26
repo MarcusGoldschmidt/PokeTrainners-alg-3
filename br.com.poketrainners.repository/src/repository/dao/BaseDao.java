@@ -5,61 +5,50 @@
  */
 package repository.dao;
 
-import infraestruture.helpers.PostgresConnection;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import infraestruture.helpers.GenerateSql;
+import infraestruture.query.Queryable;
+import repository.interfaces.IBaseDao;
+import repository.interfaces.IQueryable;
 
 /**
  *
  * @author marcus
+ * @param <T>
  */
-public class BaseDao{
-    
-    private final   Connection          _connection;
-    protected       PreparedStatement   _ptst;
-    protected       String              sql;
+public class BaseDao<T> implements IBaseDao<T> {
 
-    public BaseDao() {
-        this._connection = new PostgresConnection().IniciarConexao();
-    }
-    
-    public ResultSet Find(){
-        String aux = this.LimparSql();
-        try {
-            ResultSet valor = this._ptst.executeQuery(aux);
-            this._ptst.close();
-            return  valor;
-        } catch (SQLException e) {
-            return null;
-        }
-    }
-    
-    public boolean Execute(){
-        try {
-            boolean valor = this._ptst.execute();
-            this._ptst.clearBatch();
-            this._ptst.clearParameters();
-            this.LimparSql();
-            this._ptst.close();
-            return valor;
-        } catch (SQLException e) {
-            return false;
-        }
+    private final Class<T> Type;
+
+    private final GenerateSql _generateSql;
+
+    public BaseDao(Class<T> type) {
+        this.Type = type;
+        this._generateSql = new GenerateSql(this.Type);
     }
 
     @Override
-    protected void finalize() throws Throwable {
-        this._connection.commit();
-        this._connection.close();
-        super.finalize(); //To change body of generated methods, choose Tools | Templates.
+    public IQueryable<T> Index() {
+        return new Queryable<>(this.Type, this._generateSql.Index());
     }
-    
-    private String LimparSql(){
-        String aux = this.sql.substring(0);
-        this.sql = "";
-        return aux;
+
+    @Override
+    public IQueryable<T> Show(int id) {
+        return new Queryable<>(this.Type, this._generateSql.Show(id));
     }
-    
+
+    @Override
+    public boolean Store(T data) {
+        return new Queryable<>(this.Type, data, this._generateSql.Store(data)).Set();
+    }
+
+    @Override
+    public boolean Update(int id, T data) {
+        return new Queryable<>(this.Type, data, this._generateSql.Update(id, data)).Set();
+    }
+
+    @Override
+    public boolean Delete(int id) {
+        return new Queryable<>(this.Type, this._generateSql.Delete(id)).Set();
+    }
+
 }

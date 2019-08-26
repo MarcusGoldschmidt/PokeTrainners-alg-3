@@ -3,58 +3,57 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package repository.dao;
+package infraestruture.query;
 
-import infraestruture.helpers.GenerateSql;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import repository.interfaces.IQueryable;
 
 /**
  *
  * @author marcus
  * @param <T>
  */
-public class GenericDao<T> extends BaseDao {
+public class Queryable<T> extends BaseQuery implements IQueryable{
 
     private final Class _type;
-    private final GenerateSql _generateSql;
+    private final T Object;
 
-    public GenericDao(Class<?> type) {
-        super();
+    public Queryable(Class<?> type, String sql) {
+        super(sql);
         this._type = type;
-        this._generateSql = new GenerateSql(this._type);
+        this.Object = null;
+    }
+    
+    public Queryable(Class<?> type, T object, String sql) {
+        super(sql);
+        this._type = type;
+        this.Object = object;
+    }
+    
+    public Queryable<T> AddAndCondicion(String condicion){
+        this._condicion += " AND (" + condicion + ") ";
+        return this;
+    }
+    
+    public Queryable<T> AddOrCondicion(String condicion){
+        this._condicion += " OR (" + condicion + ") ";
+        return this;
     }
 
-    public T Index() {
-        this.sql = this._generateSql.Index();
-        return null;
+    public List<T> Get(){
+        return this.AjustarParametrosSet(super.GetResult());
+    }
+    
+    public boolean Set(){
+        return super.SetResult();
     }
 
-    public T Show(int id) {
-        this.sql = this._generateSql.Show(id);
-        return null;
-    }
-
-    public T Store(T data) {
-        this.sql = this._generateSql.Store(data);
-        return null;
-    }
-
-    public T Update(int id, T data) {
-        this.sql = this._generateSql.Update(id, data);
-        return null;
-    }
-
-    public T Delete(int id) {
-        this.sql = this._generateSql.Delete(id);
-        return null;
-    }
-
-    protected void AjustarParametrosGet(T data) {
+    private void AjustarParametrosGet(T data) {
         try {
             Method[] Methods = this._type.getMethods();
             for (int i = 0; i < Methods.length; i++) {
@@ -72,7 +71,7 @@ public class GenericDao<T> extends BaseDao {
         }
     }
 
-    protected List<T> AjustarParametrosSet(ResultSet rs) {
+    private List<T> AjustarParametrosSet(ResultSet rs) {
         List<T> result = new ArrayList<>();
         Method[] Methods = this._type.getMethods();
         try {
