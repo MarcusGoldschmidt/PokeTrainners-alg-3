@@ -6,11 +6,13 @@
 package Controllers.v1;
 
 import domain.entities.Pokemon;
+import java.util.ArrayList;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import repository.dao.PokemonDao;
 
 /**
  *
@@ -18,34 +20,36 @@ import javax.ws.rs.Path;
  */
 @Path("v1/pokemon")
 public class PokemonController extends BaseCrudController<Pokemon>{
-
+    
+    private final PokemonDao pokemonDao = new PokemonDao();
+    
     @Path("/")
     @GET
-    public Pokemon Index() {
-        return super.Index();
+    public ArrayList<Pokemon> Index() {
+        return pokemonDao.Index();
     }
 
     @Path("/{id}")
     @GET
     public Pokemon Show(int id) {
-        return super.Show(id);
+        return pokemonDao.Show(id);
     }
 
     @Path("/")
     @POST
     public Pokemon Store(Pokemon data) {
-         return super.Store(data);
+         return pokemonDao.Store(data);
     }
 
     @Path("/")
     @PUT
     public Pokemon Update(Pokemon data) {
-         return super.Update(data);
+         return pokemonDao.Update(data);
     }
 
     @Path("/")
     @DELETE
     public Pokemon Delete(int id) {
-         return super.Delete(id);
+         return pokemonDao.Delete(id);
     }    
 }

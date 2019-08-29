@@ -5,35 +5,26 @@
  */
 package Controllers.v1;
 
-import repository.interfaces.IGenericRepository;
+import java.util.ArrayList;
 
 /**
  *
  * @author marcus
  * @param <T>
  */
-public abstract class BaseCrudController<T> extends BaseController{
+public abstract class BaseCrudController<T> extends BaseController{    
+    /**
+     *
+     * @return
+     */
+    public abstract ArrayList<T> Index();
     
-    private IGenericRepository<T> Repository;
+    public abstract T Show(int id);
     
-    public T Index() {
-        return this.Repository.Index();
-    }
+    public abstract T Store(T data);
     
-    public T Show(int id) {
-        return this.Repository.Show(id);
-    }
+    public abstract T Update(T data);
     
-    public T Store(T data) {
-         return this.Repository.Store(data);
-    }
-    
-    public T Update(T data) {
-         return this.Repository.Update(data);
-    }
-    
-    public T Delete(int id) {
-         return this.Repository.Delete(id);
-    }
+    public abstract T Delete(int id);
   
 }

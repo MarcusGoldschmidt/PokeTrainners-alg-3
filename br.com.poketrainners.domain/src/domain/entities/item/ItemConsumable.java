@@ -5,10 +5,19 @@
  */
 package domain.entities.item;
 
+import domain.entities.enuns.ItemType;
+import domain.exceptions.OperacaoInvalidaExeception;
+
 /**
  *
  * @author marcus
  */
 public class ItemConsumable extends Item{
-    
+
+    public ItemConsumable(ItemType type) throws OperacaoInvalidaExeception {
+        if (type != ItemType.PlayerConsumable && type != ItemType.PokemonConsumable) {
+            throw new OperacaoInvalidaExeception("Tipo do item não foi definido corretametne");
+        }
+        this.Type = type;
+    }
 }

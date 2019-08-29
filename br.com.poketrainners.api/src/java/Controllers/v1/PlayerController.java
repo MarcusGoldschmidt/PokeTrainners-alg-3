@@ -6,12 +6,13 @@
 package Controllers.v1;
 
 import domain.entities.Player;
+import java.util.ArrayList;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import repository.interfaces.IGenericRepository;
+import repository.dao.PlayerDao;
 
 /**
  *
@@ -20,36 +21,36 @@ import repository.interfaces.IGenericRepository;
 @Path("v1/player")
 public class PlayerController extends BaseCrudController<Player>{
     
-    private IGenericRepository<Player> Repository;
+    private final PlayerDao playerDao = new PlayerDao();
    
     @Path("/")
     @GET
-    public Player Index() {
-        return super.Index();
+    public ArrayList<Player> Index() {
+        return playerDao.Index();
     }
 
     @Path("/{id}")
     @GET
     public Player Show(int id) {
-        return super.Show(id);
+        return playerDao.Show(id);
     }
 
     @Path("/")
     @POST
     public Player Store(Player data) {
-         return super.Store(data);
+         return playerDao.Store(data);
     }
 
     @Path("/")
     @PUT
     public Player Update(Player data) {
-         return super.Update(data);
+         return playerDao.Update(data);
     }
 
     @Path("/")
     @DELETE
     public Player Delete(int id) {
-         return super.Delete(id);
+         return playerDao.Delete(id);
     }  
     
 }

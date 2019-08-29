@@ -14,7 +14,7 @@ public interface IBaseDao<T> {
 
     public IQueryable<T> Index();
 
-    public IQueryable<T> Show(int id);
+    public T Show(int id);
 
     public boolean Store(T data);
 

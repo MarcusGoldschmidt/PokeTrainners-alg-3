@@ -5,13 +5,15 @@
  */
 package repository.interfaces;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author marcus
  * @param <T>
  */
 public interface IGenericRepository<T> {
-    public T Index();
+    public ArrayList<T> Index();
     
     public T Show(int id);
     

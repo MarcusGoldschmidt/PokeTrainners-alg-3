@@ -5,7 +5,7 @@
  */
 package repository.dao;
 
-import domain.entities.Player;
+import domain.entities.Hability;
 import java.util.ArrayList;
 import repository.interfaces.IGenericRepository;
 
@@ -13,30 +13,30 @@ import repository.interfaces.IGenericRepository;
  *
  * @author marcus
  */
-public class PlayerDao implements IGenericRepository<Player>{
+public class HabilityDao implements IGenericRepository<Hability>{
 
     @Override
-    public ArrayList<Player> Index() {
+    public ArrayList<Hability> Index() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Show(int id) {
+    public Hability Show(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Store(Player data) {
+    public Hability Store(Hability data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Update(Player data) {
+    public Hability Update(Hability data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Delete(int id) {
+    public Hability Delete(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

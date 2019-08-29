@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain.helpers;
+package repository.interfaces;
+
+import java.sql.Connection;
 
 /**
  *
  * @author marcus
  */
-public class ItemFactory {
-    
+public interface IniciarConexao {
+    Connection IniciarConexao();
 }

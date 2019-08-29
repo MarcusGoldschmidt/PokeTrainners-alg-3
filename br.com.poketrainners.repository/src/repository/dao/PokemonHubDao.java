@@ -5,7 +5,7 @@
  */
 package repository.dao;
 
-import domain.entities.Player;
+import domain.entities.PokemonHub;
 import java.util.ArrayList;
 import repository.interfaces.IGenericRepository;
 
@@ -13,30 +13,30 @@ import repository.interfaces.IGenericRepository;
  *
  * @author marcus
  */
-public class PlayerDao implements IGenericRepository<Player>{
+public class PokemonHubDao implements IGenericRepository<PokemonHub>{
 
     @Override
-    public ArrayList<Player> Index() {
+    public ArrayList<PokemonHub> Index() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Show(int id) {
+    public PokemonHub Show(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Store(Player data) {
+    public PokemonHub Store(PokemonHub data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Update(Player data) {
+    public PokemonHub Update(PokemonHub data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Delete(int id) {
+    public PokemonHub Delete(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

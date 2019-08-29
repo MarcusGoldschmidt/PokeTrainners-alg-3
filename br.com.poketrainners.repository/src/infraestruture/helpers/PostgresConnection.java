@@ -8,12 +8,13 @@ package infraestruture.helpers;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import repository.interfaces.IniciarConexao;
 
 /**
  *
  * @author marcus
  */
-public class PostgresConnection {
+public class PostgresConnection implements IniciarConexao{
     
     private final String urlDeConexao = "jdbc:mysql://localhost/pizzaria";
     private final String usuario = "root";

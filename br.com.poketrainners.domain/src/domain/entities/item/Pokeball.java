@@ -5,11 +5,17 @@
  */
 package domain.entities.item;
 
+import domain.entities.enuns.ItemType;
+
 /**
  *
  * @author marcus
  */
 public class Pokeball extends Item {
+
+    public Pokeball() {
+        this.Type = ItemType.Pokeball;
+    }
     
     private int Power;
     

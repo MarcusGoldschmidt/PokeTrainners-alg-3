@@ -33,7 +33,6 @@ public class ApplicationConfig extends Application {
         resources.add(Controllers.v1.PlayerController.class);
         resources.add(Controllers.v1.PokeballController.class);
         resources.add(Controllers.v1.PokemonController.class);
-        resources.add(Controllers.v1.SqlGeneratorController.class);
     }
     
 }

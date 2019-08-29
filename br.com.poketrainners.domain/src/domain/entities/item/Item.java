@@ -5,21 +5,20 @@
  */
 package domain.entities.item;
 
-import domain.entities.Player;
 import domain.entities.enuns.ItemType;
 
 /**
  *
  * @author marcus
  */
-public abstract class Item {
-    private int ItemId;
+public class Item {
+    protected int ItemId;
     
-    private String Name;
-    private String Description;
+    protected String Name;
+    protected String Description;
     
-    private double Price;
-    private double Weight;
+    protected double Price;
+    protected double Weight;
     
-    private ItemType Type;
+    protected ItemType Type;
 }

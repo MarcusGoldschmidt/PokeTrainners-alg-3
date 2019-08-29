@@ -6,7 +6,9 @@
 package repository.dao;
 
 import infraestruture.helpers.GenerateSql;
+import infraestruture.helpers.PostgresConnection;
 import infraestruture.query.Queryable;
+import java.sql.Connection;
 import repository.interfaces.IBaseDao;
 import repository.interfaces.IQueryable;
 
@@ -19,11 +21,13 @@ public class BaseDao<T> implements IBaseDao<T> {
 
     private final Class<T> Type;
 
-    private final GenerateSql _generateSql;
+    private final GenerateSql<T> _generateSql;
+    
+    protected Connection connect = (new PostgresConnection().IniciarConexao()); 
 
     public BaseDao(Class<T> type) {
         this.Type = type;
-        this._generateSql = new GenerateSql(this.Type);
+        this._generateSql = new GenerateSql<>(this.Type);
     }
 
     @Override
@@ -32,8 +36,8 @@ public class BaseDao<T> implements IBaseDao<T> {
     }
 
     @Override
-    public IQueryable<T> Show(int id) {
-        return new Queryable<>(this.Type, this._generateSql.Show(id));
+    public T Show(int id) {
+        return new Queryable<T>(this.Type, this._generateSql.Show(id)).Get().get(0);
     }
 
     @Override
@@ -49,6 +53,13 @@ public class BaseDao<T> implements IBaseDao<T> {
     @Override
     public boolean Delete(int id) {
         return new Queryable<>(this.Type, this._generateSql.Delete(id)).Set();
+    }
+    
+    @Override
+    protected void finalize() throws Throwable {
+        connect.commit();
+        connect.close();
+        super.finalize(); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

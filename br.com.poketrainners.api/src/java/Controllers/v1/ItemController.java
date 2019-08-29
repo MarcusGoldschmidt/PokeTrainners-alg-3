@@ -6,47 +6,51 @@
 package Controllers.v1;
 
 import domain.entities.item.Item;
+import java.util.ArrayList;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import repository.dao.ItemDao;
 
 /**
  *
  * @author marcus
  */
 @Path("/v1/item")
-public class ItemController extends BaseCrudController<Item>{
+public class ItemController extends BaseCrudController<Item> {
+    
+    private final ItemDao itemDao = new ItemDao();
     
     @Path("/")
     @GET
-    public Item Index() {
-        return super.Index();
+    public ArrayList<Item> Index() {
+        return itemDao.Index();
     }
 
     @Path("/{id}")
     @GET
     public Item Show(int id) {
-        return super.Show(id);
+        return itemDao.Show(id);
     }
 
     @Path("/")
     @POST
     public Item Store(Item data) {
-         return super.Store(data);
+         return itemDao.Store(data);
     }
 
     @Path("/")
     @PUT
     public Item Update(Item data) {
-         return super.Update(data);
+         return itemDao.Update(data);
     }
 
     @Path("/")
     @DELETE
     public Item Delete(int id) {
-         return super.Delete(id);
+         return itemDao.Delete(id);
     }  
 
 }

@@ -19,26 +19,40 @@ public class Player {
 
     private int             PlayerId;
     private String          Name;
-    private String          Description;
 
+    private int             BagId;
     private Bag<Item>       Bag;
 
     private int             Level;
-
+    
+    private int             PokemonBagId;
     private List<Pokemon>   PokemonBag;
+    
+    private int             PokemonHubId;
     private PokemonHub      PokemonHub;
+    
+    private int             CurrentLocalityId;
+    private Locality        CurrentLocality;
 
     private double Money;
 
-    public Player(int PlayerId, String Name, String Description, Bag<Item> Bag, List<Pokemon> PokemonBag, PokemonHub PokemonHub) {
+    public Player(int PlayerId, String Name, Bag<Item> Bag, int Level, List<Pokemon> PokemonBag, PokemonHub PokemonHub, Locality CurrentLocality, double Money) {
         this.PlayerId = PlayerId;
         this.Name = Name;
-        this.Description = Description;
         this.Bag = Bag;
-        this.Level = 1;
+        this.Level = Level;
         this.PokemonBag = PokemonBag;
         this.PokemonHub = PokemonHub;
-        this.Money = 500;
+        this.CurrentLocality = CurrentLocality;
+        this.Money = Money;
+    }
+
+    public Locality getCurrentLocality() {
+        return CurrentLocality;
+    }
+
+    public void setCurrentLocality(Locality CurrentLocality) {
+        this.CurrentLocality = CurrentLocality;
     }
 
     public int getPlayerId() {
@@ -47,10 +61,6 @@ public class Player {
 
     public String getName() {
         return Name;
-    }
-
-    public String getDescription() {
-        return Description;
     }
 
     public Bag<Item> getBag() {

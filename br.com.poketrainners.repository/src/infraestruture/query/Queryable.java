@@ -46,14 +46,15 @@ public class Queryable<T> extends BaseQuery implements IQueryable{
     }
 
     public List<T> Get(){
-        return this.AjustarParametrosSet(super.GetResult());
+        return this.CriarListaDoTipoT(super.GetResult());
     }
     
     public boolean Set(){
+        AjustaPtstParaObjeto(this.Object);
         return super.SetResult();
     }
 
-    private void AjustarParametrosGet(T data) {
+    private void AjustaPtstParaObjeto(T data) {
         try {
             Method[] Methods = this._type.getMethods();
             for (int i = 0; i < Methods.length; i++) {
@@ -71,12 +72,13 @@ public class Queryable<T> extends BaseQuery implements IQueryable{
         }
     }
 
-    private List<T> AjustarParametrosSet(ResultSet rs) {
+    private List<T> CriarListaDoTipoT(ResultSet rs) {
         List<T> result = new ArrayList<>();
         Method[] Methods = this._type.getMethods();
         try {
             while (rs.next()) {
                 Object o = this._type.newInstance();
+                // TODO: Refatorar
                 for (Method Method : Methods) {
                     if (Method.getName().startsWith("set")) {
                         if (Method.getReturnType() == double.class) {
@@ -88,7 +90,7 @@ public class Queryable<T> extends BaseQuery implements IQueryable{
                         }
                     }
                 }
-                result.add((T)o);
+                result.add((T) o);
             }
         } catch (IllegalAccessException | IllegalArgumentException | InstantiationException | InvocationTargetException | SQLException e) {
         }

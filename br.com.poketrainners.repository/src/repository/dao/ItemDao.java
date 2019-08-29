@@ -5,7 +5,7 @@
  */
 package repository.dao;
 
-import domain.entities.Player;
+import domain.entities.item.Item;
 import java.util.ArrayList;
 import repository.interfaces.IGenericRepository;
 
@@ -13,30 +13,30 @@ import repository.interfaces.IGenericRepository;
  *
  * @author marcus
  */
-public class PlayerDao implements IGenericRepository<Player>{
+public class ItemDao implements IGenericRepository<Item> {
 
     @Override
-    public ArrayList<Player> Index() {
+    public ArrayList<Item> Index() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Show(int id) {
+    public Item Show(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Store(Player data) {
+    public Item Store(Item data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Update(Player data) {
+    public Item Update(Item data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Player Delete(int id) {
+    public Item Delete(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
