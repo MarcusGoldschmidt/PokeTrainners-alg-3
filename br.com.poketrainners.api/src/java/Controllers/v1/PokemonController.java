@@ -18,7 +18,7 @@ import repository.dao.PokemonDao;
  *
  * @author marcus
  */
-@Path("v1/pokemon")
+@Path("pokemon")
 public class PokemonController extends BaseCrudController<Pokemon>{
     
     private final PokemonDao pokemonDao = new PokemonDao();

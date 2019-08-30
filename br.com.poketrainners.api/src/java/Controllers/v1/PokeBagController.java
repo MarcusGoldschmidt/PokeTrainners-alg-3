@@ -12,7 +12,7 @@ import javax.ws.rs.Path;
  *
  * @author marcus
  */
-@Path("v1/player/bag/pokemon")
+@Path("player/bag/pokemon")
 public class PokeBagController extends BaseCrudController{
 
     @Override

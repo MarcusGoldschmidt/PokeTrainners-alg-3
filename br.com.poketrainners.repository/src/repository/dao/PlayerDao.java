@@ -26,6 +26,7 @@ public class PlayerDao extends BaseDao<Player> {
 
     @Override
     public ArrayList<Player> Index() {
+        System.out.println("Pesquisando...");    
         String sql = "SELECT * FROM " + TableName;
         try {
             ArrayList<Player> players = new ArrayList<>();
@@ -44,6 +45,8 @@ public class PlayerDao extends BaseDao<Player> {
                 player.setMoney(rs.getDouble("Money"));
                 players.add(player);
             }
+            
+            System.out.println("FOI");
 
             return players;
         } catch (SQLException e) {

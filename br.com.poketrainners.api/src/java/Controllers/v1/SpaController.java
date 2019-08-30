@@ -5,8 +5,6 @@
  */
 package Controllers.v1;
 
-import domain.entities.Player;
-import java.util.ArrayList;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
@@ -19,6 +17,6 @@ public class SpaController {
     @Path("/")
     @GET
     public String Index() {
-        return playerDao.Index();
+        return "SS";
     }
 }

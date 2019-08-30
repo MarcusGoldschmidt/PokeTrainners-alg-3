@@ -13,7 +13,7 @@ import javax.ws.rs.Path;
  *
  * @author marcus
  */
-@Path("v1/pokemon/cached")
+@Path("pokemon/cached")
 public class PokeCachedController extends BaseCrudController<PokemonCathed>{
 
     @Override

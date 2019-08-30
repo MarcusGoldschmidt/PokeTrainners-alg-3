@@ -5,10 +5,6 @@
  */
 package Controllers.v1;
 
-import infraestruture.helpers.PostgresConnection;
-import java.sql.Connection;
-import repository.interfaces.IniciarConexao;
-
 /**
  *
  * @author marcus

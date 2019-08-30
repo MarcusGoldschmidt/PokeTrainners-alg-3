@@ -5,12 +5,71 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<head>
+    <title>Pokemon Work</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app" class="container">
+    <form action="" v-on:submit.prevent="salvar()">
+        <label for="Nome">Nome</label>
+        <input id="Nome" name="Nome" v-model="Player.Name">
+        <br>
+        <label for="Nome">Pontuacao</label>
+        <input id="Pontuacao" name="Pontuacao" vmodel="Player.Pontuacao">
+        <br>
+        <label for="Level">Level</label>
+        <input id="Level" name="Level" v-model="Player.Level">
+        <br>
+        <label for="Money">Money</label>
+        <input id="Money" name="Money" v-model="Player.Money">
+        <br>
+        <button type="submit">Adicionar</button>
+    </form>
+</div>
+</body>
+<script src="./assets/js/main.config.js"></script>
+<script>
+    let vue = new Vue({
+        el: '#app',
+        data: {
+            Player: {
+                Name: "Teste",
+                Pontuacao: 0,
+                Level: 1,
+                Money: 0
+            },
+            Listagem: []
+        },
+        methods: {
+            salvar() {
+                req("player/", createRequest("POST", this.Player)).then(e => {
+                    alert(e.statusText);
+                    this.listar();
+                })
+            },
+            listar() {
+                req("player/").then(e => {
+                    
+                })
+            },
+            excluir(id) {
+                req("player/", createRequest("DELETE", {id: id})).then(e => {
+                    alert(e.statusText);
+                })
+            },
+            editar(id, data) {
+                req("player/", createRequest("PUT", data)).then(e => {
+                    alert(e.statusText);
+                })
+            }
+        }
+    });
+</script>
 </html>

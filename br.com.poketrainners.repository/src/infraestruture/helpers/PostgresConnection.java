@@ -23,9 +23,10 @@ public class PostgresConnection implements IniciarConexao{
     @Override
     public Connection IniciarConexao() {
         try {	
+            Class.forName("org.postgresql.Driver");	
             Connection conexao = DriverManager.getConnection(urlDeConexao, usuario, senha);
             return conexao;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             throw new RuntimeException(ex);
         }
     }

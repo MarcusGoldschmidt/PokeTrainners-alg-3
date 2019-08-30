@@ -11,7 +11,6 @@ import java.util.List;
  *
  * @author marcus
  * Type
- * @param <T>
  */
 public class PokemonBag {
     protected int           BagId;
