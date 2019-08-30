@@ -7,7 +7,6 @@ package domain.entities;
 
 import domain.entities.enuns.Status;
 import domain.entities.enuns.Type;
-import domain.exceptions.OperacaoInvalidaExeception;
 import java.util.List;
 
 /**
@@ -38,8 +37,6 @@ public class Pokemon {
     private Type            Type2;
     
     private List<Status>    Status;
-    
-    private List<Hability>  Habilitys;
 
     public int getPokemonId() {
         return PokemonId;
@@ -144,19 +141,7 @@ public class Pokemon {
     public void setStatus(List<Status> Status) {
         this.Status = Status;
     }
-
-    public List<Hability> getHabilitys() {
-        return Habilitys;
-    }
-
-    public void setHabilitys(List<Hability> Habilitys) {
-        this.Habilitys = Habilitys;
-    }
     
-    public boolean RemoveAbility(Hability data){
-        return Habilitys.remove(data);
-    }
-
     public Type getType1() {
         return Type1;
     }
@@ -179,21 +164,6 @@ public class Pokemon {
 
     public void setPlayerOwner(Player PlayerOwner) {
         this.PlayerOwner = PlayerOwner;
-    }
-    
-    public boolean AddAbility(Hability newData) throws OperacaoInvalidaExeception{
-        if (Habilitys.toArray().length <= 4) {
-            throw new OperacaoInvalidaExeception("Limite de 4 hábilidades");
-        }
-        return Habilitys.add(newData);
-    }
-    
-    public boolean ChangeAbility(Hability oldData, Hability newData){
-        if (Habilitys.remove(oldData)) {
-            Habilitys.add(newData);
-            return true;
-        }
-        return false;
     }
     
     public boolean TryLevelUp(){

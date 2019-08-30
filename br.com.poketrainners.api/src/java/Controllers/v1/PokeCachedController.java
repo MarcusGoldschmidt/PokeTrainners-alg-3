@@ -3,40 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package repository.dao;
+package Controllers.v1;
 
-import domain.entities.item.Pokeball;
+import domain.entities.PokemonCathed;
 import java.util.ArrayList;
-import repository.interfaces.IGenericRepository;
 
 /**
  *
  * @author marcus
  */
-public class PokeballDao implements IGenericRepository<Pokeball>{
+public class PokeCachedController extends BaseCrudController<PokemonCathed>{
 
     @Override
-    public ArrayList<Pokeball> Index() {
+    public ArrayList<PokemonCathed> Index() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Pokeball Show(int id) {
+    public PokemonCathed Show(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Pokeball Store(Pokeball data) {
+    public PokemonCathed Store(PokemonCathed data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Pokeball Update(Pokeball data) {
+    public PokemonCathed Update(PokemonCathed data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Pokeball Delete(int id) {
+    public PokemonCathed Delete(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

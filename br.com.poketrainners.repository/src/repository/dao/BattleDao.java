@@ -5,7 +5,8 @@
  */
 package repository.dao;
 
-import domain.entities.item.Item;
+import domain.entities.Battle;
+import domain.entities.Player;
 import java.util.ArrayList;
 import repository.interfaces.IGenericRepository;
 
@@ -13,30 +14,38 @@ import repository.interfaces.IGenericRepository;
  *
  * @author marcus
  */
-public class BagItensDao implements IGenericRepository<BaseDao<Item>>{
+public class BattleDao implements IGenericRepository<Battle>{
 
     @Override
-    public ArrayList<BaseDao<Item>> Index() {
+    public ArrayList<Battle> Index() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public BaseDao<Item> Show(int id) {
+    public Battle Show(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Battle Store(Player data) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Battle Update(Player data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public BaseDao<Item> Store(BaseDao<Item> data) {
+    public Battle Delete(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public BaseDao<Item> Update(BaseDao<Item> data) {
+    public Battle Store(Battle data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public BaseDao<Item> Delete(int id) {
+    public Battle Update(Battle data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

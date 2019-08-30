@@ -5,17 +5,20 @@
  */
 package domain.entities;
 
+import java.util.List;
+
 /**
  *
  * @author marcus
  */
 public class Battle {
+    private int         BattleId;
     
-    private int     BattleId;
+    private int         PlayerOneId;
+    private Player      PlayerOneID;
     
-    private int     PlayerOneId;
-    private Player  PlayerOneID;
+    private int         PlayerTwoId;
+    private Player      PlayerTwo;
     
-    private int     PlayerTwoId;
-    private Player  PlayerTwo;
+    private List<Round> Rounds;
 }

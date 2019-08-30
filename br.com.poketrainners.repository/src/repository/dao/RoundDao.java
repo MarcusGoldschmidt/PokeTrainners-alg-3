@@ -5,6 +5,10 @@
  */
 package repository.dao;
 
+import domain.entities.Bag;
+import domain.entities.Player;
+import domain.entities.Pokemon;
+import domain.entities.Round;
 import java.util.ArrayList;
 import repository.interfaces.IGenericRepository;
 
@@ -12,30 +16,46 @@ import repository.interfaces.IGenericRepository;
  *
  * @author marcus
  */
-public class LocalityDao implements IGenericRepository<LocalityDao>{
+public class RoundDao implements IGenericRepository<Round>{
 
     @Override
-    public ArrayList<LocalityDao> Index() {
+    public ArrayList<Round> Index() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public LocalityDao Show(int id) {
+    public Round Show(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Round Store(Player data) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Round Update(Player data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public LocalityDao Store(LocalityDao data) {
+    public Round Delete(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Round Store(Bag<Pokemon> data) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Round Update(Bag<Pokemon> data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public LocalityDao Update(LocalityDao data) {
+    public Round Store(Round data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public LocalityDao Delete(int id) {
+    public Round Update(Round data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

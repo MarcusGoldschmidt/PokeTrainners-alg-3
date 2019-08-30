@@ -3,40 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package repository.dao;
+package Controllers.v1;
 
-import domain.entities.PokemonHub;
 import java.util.ArrayList;
-import repository.interfaces.IGenericRepository;
 
 /**
  *
  * @author marcus
  */
-public class PokemonHubDao implements IGenericRepository<PokemonHub>{
+public class PokeBagController extends BaseCrudController{
 
     @Override
-    public ArrayList<PokemonHub> Index() {
+    public ArrayList Index() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PokemonHub Show(int id) {
+    public Object Show(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PokemonHub Store(PokemonHub data) {
+    public Object Store(Object data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PokemonHub Update(PokemonHub data) {
+    public Object Update(Object data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PokemonHub Delete(int id) {
+    public Object Delete(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
