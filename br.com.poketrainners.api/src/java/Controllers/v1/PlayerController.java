@@ -37,19 +37,19 @@ public class PlayerController extends BaseCrudController<Player>{
 
     @Path("/")
     @POST
-    public Player Store(Player data) {
+    public boolean Store(Player data) {
          return playerDao.Store(data);
     }
 
     @Path("/")
     @PUT
-    public Player Update(Player data) {
+    public boolean Update(Player data) {
          return playerDao.Update(data);
     }
 
     @Path("/")
     @DELETE
-    public Player Delete(int id) {
+    public boolean Delete(int id) {
          return playerDao.Delete(id);
     }  
     

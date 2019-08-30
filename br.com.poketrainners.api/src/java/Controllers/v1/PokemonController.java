@@ -37,19 +37,19 @@ public class PokemonController extends BaseCrudController<Pokemon>{
 
     @Path("/")
     @POST
-    public Pokemon Store(Pokemon data) {
+    public boolean Store(Pokemon data) {
          return pokemonDao.Store(data);
     }
 
     @Path("/")
     @PUT
-    public Pokemon Update(Pokemon data) {
+    public boolean Update(Pokemon data) {
          return pokemonDao.Update(data);
     }
 
     @Path("/")
     @DELETE
-    public Pokemon Delete(int id) {
+    public boolean Delete(int id) {
          return pokemonDao.Delete(id);
     }    
 }

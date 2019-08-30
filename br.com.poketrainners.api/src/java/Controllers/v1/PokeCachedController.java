@@ -7,11 +7,13 @@ package Controllers.v1;
 
 import domain.entities.PokemonCathed;
 import java.util.ArrayList;
+import javax.ws.rs.Path;
 
 /**
  *
  * @author marcus
  */
+@Path("v1/pokemon/cached")
 public class PokeCachedController extends BaseCrudController<PokemonCathed>{
 
     @Override
@@ -25,17 +27,17 @@ public class PokeCachedController extends BaseCrudController<PokemonCathed>{
     }
 
     @Override
-    public PokemonCathed Store(PokemonCathed data) {
+    public boolean Store(PokemonCathed data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PokemonCathed Update(PokemonCathed data) {
+    public boolean Update(PokemonCathed data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PokemonCathed Delete(int id) {
+    public boolean Delete(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -21,10 +21,10 @@ public abstract class BaseCrudController<T> extends BaseController{
     
     public abstract T Show(int id);
     
-    public abstract T Store(T data);
+    public abstract boolean Store(T data);
     
-    public abstract T Update(T data);
+    public abstract boolean Update(T data);
     
-    public abstract T Delete(int id);
+    public abstract boolean Delete(int id);
   
 }

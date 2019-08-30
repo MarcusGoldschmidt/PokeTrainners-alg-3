@@ -6,11 +6,13 @@
 package Controllers.v1;
 
 import java.util.ArrayList;
+import javax.ws.rs.Path;
 
 /**
  *
  * @author marcus
  */
+@Path("v1/player/bag/pokemon")
 public class PokeBagController extends BaseCrudController{
 
     @Override
@@ -24,17 +26,17 @@ public class PokeBagController extends BaseCrudController{
     }
 
     @Override
-    public Object Store(Object data) {
+    public boolean Store(Object data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object Update(Object data) {
+    public boolean Update(Object data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object Delete(int id) {
+    public boolean Delete(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
