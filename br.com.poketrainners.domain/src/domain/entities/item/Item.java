@@ -14,11 +14,13 @@ import domain.entities.enuns.ItemType;
 public class Item {
     protected int ItemId;
     
-    protected String Name;
-    protected String Description;
+    protected String    Name;
+    protected String    Description;
     
-    protected double Price;
-    protected double Weight;
+    protected double    Price;
+    protected double    Weight;
     
-    protected ItemType Type;
+    protected int       Quantidade;
+    
+    protected ItemType  Type;
 }

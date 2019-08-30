@@ -19,4 +19,24 @@ public class Bag<T> {
     protected int MaxSize;
     
     protected List<T> Itens;
+
+    public Bag(int maxSize) {
+        this.MaxSize = maxSize;
+    }
+    
+    public boolean add(T data){
+        if (Itens.size() >= 6) {
+            return false;
+        }
+        return Itens.add(data);
+    }
+    
+    public boolean remove(T data){
+        return Itens.remove(data);
+    } 
+    
+    public T removeAt(int i){
+        return Itens.remove(i);
+    } 
+    
 }

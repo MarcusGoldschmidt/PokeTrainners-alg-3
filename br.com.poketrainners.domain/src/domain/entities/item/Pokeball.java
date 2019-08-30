@@ -18,8 +18,6 @@ public class Pokeball extends Item {
     }
     
     private int Power;
-    
-    private int Quantidade;
 
     public int getPower() {
         return Power;

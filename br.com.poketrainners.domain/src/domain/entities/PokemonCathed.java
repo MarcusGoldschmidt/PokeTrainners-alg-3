@@ -5,18 +5,20 @@
  */
 package domain.entities;
 
-import java.util.List;
+import java.util.Date;
 
 /**
  *
  * @author marcus
  */
-public class Locality {
-    private int             LocalityId;
-    private String          Name;
+public class PokemonCathed {
     
-    private List<Locality>  Ways;
+    private int         PokemonCathedId;
     
-    private List<Pokemon>   PokemonsAvailable;
-    private List<Player>    Npcs;
+    private int         PlayerId;
+    private Player      Player;
+    
+    private Pokemon     Pokemon;
+    
+    private Date        CreatedAt;
 }
