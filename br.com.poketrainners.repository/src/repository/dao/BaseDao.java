@@ -7,17 +7,16 @@ package repository.dao;
 
 import infraestruture.helpers.GenerateSql;
 import infraestruture.helpers.PostgresConnection;
-import infraestruture.query.Queryable;
 import java.sql.Connection;
+import java.util.ArrayList;
 import repository.interfaces.IBaseDao;
-import repository.interfaces.IQueryable;
 
 /**
  *
  * @author marcus
  * @param <T>
  */
-public class BaseDao<T> implements IBaseDao<T> {
+public abstract class BaseDao<T> implements IBaseDao<T> {
 
     private final Class<T> Type;
 
@@ -29,31 +28,16 @@ public class BaseDao<T> implements IBaseDao<T> {
         this.Type = type;
         this._generateSql = new GenerateSql<>(this.Type);
     }
+    
+    public abstract ArrayList<T> Index();
 
-    @Override
-    public IQueryable<T> Index() {
-        return new Queryable<>(this.Type, this._generateSql.Index());
-    }
+    public abstract T Show(int id);
 
-    @Override
-    public T Show(int id) {
-        return new Queryable<T>(this.Type, this._generateSql.Show(id)).Get().get(0);
-    }
+    public abstract boolean Store(T data);
 
-    @Override
-    public boolean Store(T data) {
-        return new Queryable<>(this.Type, data, this._generateSql.Store(data)).Set();
-    }
+    public abstract boolean Update(T data);
 
-    @Override
-    public boolean Update(int id, T data) {
-        return new Queryable<>(this.Type, data, this._generateSql.Update(id, data)).Set();
-    }
-
-    @Override
-    public boolean Delete(int id) {
-        return new Queryable<>(this.Type, this._generateSql.Delete(id)).Set();
-    }
+    public abstract boolean Delete(int id);
     
     @Override
     protected void finalize() throws Throwable {

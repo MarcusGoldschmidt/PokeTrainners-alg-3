@@ -17,9 +17,9 @@ public interface IGenericRepository<T> {
     
     public T Show(int id);
     
-    public T Store(T data);
+    public boolean Store(T data);
     
-    public T Update(T data);
+    public boolean Update(T data);
     
     public T Delete(int id);
 }

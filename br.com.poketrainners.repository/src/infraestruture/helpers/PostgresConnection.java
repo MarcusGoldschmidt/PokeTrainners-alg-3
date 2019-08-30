@@ -16,9 +16,9 @@ import repository.interfaces.IniciarConexao;
  */
 public class PostgresConnection implements IniciarConexao{
     
-    private final String urlDeConexao = "jdbc:mysql://localhost/pizzaria";
-    private final String usuario = "root";
-    private final String senha = "";
+    private final String urlDeConexao = "jdbc:postgresql://localhost:5433/manga";
+    private final String usuario = "postgres";
+    private final String senha = "55";
 
     public Connection IniciarConexao() {
         try {

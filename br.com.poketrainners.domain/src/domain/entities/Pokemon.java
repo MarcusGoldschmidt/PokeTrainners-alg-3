@@ -5,9 +5,7 @@
  */
 package domain.entities;
 
-import domain.entities.enuns.Status;
 import domain.entities.enuns.Type;
-import java.util.List;
 
 /**
  *
@@ -16,6 +14,7 @@ import java.util.List;
 public class Pokemon {
     private int             PokemonId;
     
+    private int             PlayerOwnerId;
     private Player          PlayerOwner;
     
     private String          Name;
@@ -25,7 +24,9 @@ public class Pokemon {
     private int             CurrentXp;
     private int             XpToNextLevel;
     
-    private int             HP;
+    private int             MaxHp;
+    private int             CurrentHp;
+    
     private int             Attack;
     private int             SpAtk;
     private int             SpDef;
@@ -35,8 +36,6 @@ public class Pokemon {
     
     private Type            Type1;
     private Type            Type2;
-    
-    private List<Status>    Status;
 
     public int getPokemonId() {
         return PokemonId;
@@ -44,6 +43,14 @@ public class Pokemon {
 
     public void setPokemonId(int PokemonId) {
         this.PokemonId = PokemonId;
+    }
+
+    public int getPlayerOwnerId() {
+        return PlayerOwnerId;
+    }
+
+    public void setPlayerOwnerId(int PlayerOwnerId) {
+        this.PlayerOwnerId = PlayerOwnerId;
     }
 
     public String getName() {
@@ -86,12 +93,20 @@ public class Pokemon {
         this.XpToNextLevel = XpToNextLevel;
     }
 
-    public int getHP() {
-        return HP;
+    public int getMaxHp() {
+        return MaxHp;
     }
 
-    public void setHP(int HP) {
-        this.HP = HP;
+    public void setMaxHp(int MaxHp) {
+        this.MaxHp = MaxHp;
+    }
+
+    public int getCurrentHp() {
+        return CurrentHp;
+    }
+
+    public void setCurrentHp(int CurrentHp) {
+        this.CurrentHp = CurrentHp;
     }
 
     public int getAttack() {
@@ -132,14 +147,6 @@ public class Pokemon {
 
     public void setDefenseToCath(int DefenseToCath) {
         this.DefenseToCath = DefenseToCath;
-    }
-
-    public List<Status> getStatus() {
-        return Status;
-    }
-
-    public void setStatus(List<Status> Status) {
-        this.Status = Status;
     }
     
     public Type getType1() {

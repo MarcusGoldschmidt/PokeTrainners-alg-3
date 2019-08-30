@@ -7,7 +7,6 @@ package domain.entities;
 
 import domain.entities.item.Pokeball;
 import domain.exceptions.OperacaoInvalidaExeception;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,9 +22,6 @@ public class Player {
 
     private int                 Level;
     
-    private int                 PokemonBagId;
-    private Bag<Pokemon>        PokemonBag = new Bag<>(6);
-    
     private List<PokemonCathed> pokemonCatheds;
 
     private double Money;
@@ -34,16 +30,48 @@ public class Player {
         return PlayerId;
     }
 
+    public void setPlayerId(int PlayerId) {
+        this.PlayerId = PlayerId;
+    }
+
     public String getName() {
         return Name;
+    }
+
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
+    public double getPontuacao() {
+        return Pontuacao;
+    }
+
+    public void setPontuacao(double Pontuacao) {
+        this.Pontuacao = Pontuacao;
     }
 
     public int getLevel() {
         return Level;
     }
 
+    public void setLevel(int Level) {
+        this.Level = Level;
+    }
+    
+    public List<PokemonCathed> getPokemonCatheds() {
+        return pokemonCatheds;
+    }
+
+    public void setPokemonCatheds(List<PokemonCathed> pokemonCatheds) {
+        this.pokemonCatheds = pokemonCatheds;
+    }
+
     public double getMoney() {
         return Money;
+    }
+
+    public void setMoney(double Money) {
+        this.Money = Money;
     }
     
     public double AddMoney(double valor) throws OperacaoInvalidaExeception {
@@ -58,18 +86,6 @@ public class Player {
             throw new OperacaoInvalidaExeception("Valor negativo não permitido");
         this.Money -= valor;
         return this.Money;
-    }
-
-    public List<Pokemon> getPokemonBag() {
-        return Collections.unmodifiableList(PokemonBag.Itens);
-    }
-
-    public boolean AddPokemonBag(Pokemon data) throws OperacaoInvalidaExeception {
-        return this.PokemonBag.add(data);
-    }
-
-    public boolean RemovePokemonBag(Pokemon data) throws OperacaoInvalidaExeception {
-        return this.PokemonBag.remove(data);
     }
 
     public boolean TryCathPokemon(Pokeball pokeball, Pokemon pokemon) {

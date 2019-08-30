@@ -5,6 +5,8 @@
  */
 package repository.interfaces;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author marcus
@@ -12,14 +14,6 @@ package repository.interfaces;
  */
 public interface IBaseDao<T> {
 
-    public IQueryable<T> Index();
-
-    public T Show(int id);
-
-    public boolean Store(T data);
-
-    public boolean Update(int id, T data);
-
-    public boolean Delete(int id);
+    
 
 }
