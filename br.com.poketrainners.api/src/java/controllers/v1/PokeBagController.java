@@ -5,39 +5,60 @@
  */
 package controllers.v1;
 
-import java.util.ArrayList;
+import domain.entities.PokemonBag;
+import java.util.List;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import repository.dao.PokemonBagDao;
 
 /**
  *
  * @author marcus
  */
 @Path("player/bag/pokemon")
-public class PokeBagController extends BaseCrudController{
+public class PokeBagController extends BaseCrudController<PokemonBag>{
+    
+    private final PokemonBagDao pokemonBagDao = new PokemonBagDao();
 
-    @Override
-    public ArrayList Index() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Path("/")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<PokemonBag> Index() {
+        return this.pokemonBagDao.Index();
     }
 
-    @Override
-    public Object Show(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Path("/{id}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public PokemonBag Show(@PathParam("id") int id) {
+        return this.pokemonBagDao.Show(id);
     }
 
-    @Override
-    public boolean Store(Object data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Path("/")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public boolean Store(PokemonBag data) {
+        return this.pokemonBagDao.Store(data);
     }
 
-    @Override
-    public boolean Update(Object data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Path("/")
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    public boolean Update(PokemonBag data) {
+        return this.pokemonBagDao.Update(data);
     }
 
-    @Override
+    @Path("/")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
     public boolean Delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.pokemonBagDao.Delete(id);
     }
     
 }

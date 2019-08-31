@@ -12,6 +12,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import repository.dao.PokemonDao;
 
 /**
@@ -31,7 +32,7 @@ public class PokemonController extends BaseCrudController<Pokemon>{
 
     @Path("/{id}")
     @GET
-    public Pokemon Show(int id) {
+    public Pokemon Show(@PathParam("id") int id) {
         return pokemonDao.Show(id);
     }
 
