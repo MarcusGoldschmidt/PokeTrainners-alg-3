@@ -29,11 +29,11 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(Controllers.v1.PlayerController.class);
-        resources.add(Controllers.v1.PokeBagController.class);
-        resources.add(Controllers.v1.PokeCachedController.class);
-        resources.add(Controllers.v1.PokemonController.class);
-        resources.add(Controllers.v1.SpaController.class);
+        resources.add(controllers.v1.PlayerController.class);
+        resources.add(controllers.v1.PokeBagController.class);
+        resources.add(controllers.v1.PokeCachedController.class);
+        resources.add(controllers.v1.PokemonController.class);
+        resources.add(controllers.v1.SpaController.class);
     }
     
 }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class PokemonBagDao extends BaseDao<PokemonBag> {
 
-    private final String TableName = "PokemonBag";
+    private final String TableName = "pokemonBag";
     private final String TablePk = TableName + "Id";
 
     public PokemonBagDao() {

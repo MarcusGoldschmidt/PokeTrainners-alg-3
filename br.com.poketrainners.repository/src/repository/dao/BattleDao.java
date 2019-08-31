@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class BattleDao extends BaseDao<Battle> {
 
-    private final String TableName = "Battle";
+    private final String TableName = "battle";
     private final String TablePk = TableName + "Id";
 
     public BattleDao() {

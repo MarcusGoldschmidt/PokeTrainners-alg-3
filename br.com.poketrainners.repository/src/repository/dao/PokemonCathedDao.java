@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class PokemonCathedDao extends BaseDao<PokemonCathed> {
 
-    private final String TableName = "Pokemon";
+    private final String TableName = "pokemon";
     private final String TablePk = TableName + "Id";
 
     public PokemonCathedDao() {

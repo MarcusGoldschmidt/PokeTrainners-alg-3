@@ -7,13 +7,14 @@ package domain.entities;
 
 import domain.entities.item.Pokeball;
 import domain.exceptions.OperacaoInvalidaExeception;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author marcus
  */
-public class Player {
+public class Player implements Serializable{
 
     private int                 PlayerId;
     private String              Name;

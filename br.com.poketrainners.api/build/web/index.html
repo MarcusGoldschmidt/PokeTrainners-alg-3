@@ -17,6 +17,7 @@ and open the template in the editor.
 </head>
 <body>
 <div id="app" class="container">
+    <h1>Salvar</h1>
     <form action="" v-on:submit.prevent="salvar()">
         <label for="Nome">Nome</label>
         <input id="Nome" name="Nome" v-model="Player.Name">
@@ -32,6 +33,46 @@ and open the template in the editor.
         <br>
         <button type="submit">Adicionar</button>
     </form>
+
+    <h1>Alterar</h1>
+    <form action="" v-on:submit.prevent="editar()">
+        <label for="Nome">Nome</label>
+        <input id="Nome" name="Nome" v-model="Player.Name">
+        <br>
+        <label for="Nome">Pontuacao</label>
+        <input id="Pontuacao" name="Pontuacao" vmodel="Player.Pontuacao">
+        <br>
+        <label for="Level">Level</label>
+        <input id="Level" name="Level" v-model="Player.Level">
+        <br>
+        <label for="Money">Money</label>
+        <input id="Money" name="Money" v-model="Player.Money">
+        <br>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <table>
+        <tr>
+            <td>Nome</td>
+            <td>Pontuação</td>
+            <td>Level</td>
+            <td>Money</td>
+            <td>Alterar</td>
+            <td>Excluir</td>
+        </tr>
+        <tr v-for="item in Pontuacao">
+            <td>{{ item.Nome }}</td>
+            <td>{{ item.Pontuacao }}</td>
+            <td>{{ item.Level }}</td>
+            <td>{{ item.Money }}</td>
+            <td>
+                <button v-on:click="()=> {Player = item}">Editar</button>
+            </td>
+            <td>
+                <button v-on:click="excluir(item.PlayerId)">Excluir</button>
+            </td>
+        </tr>
+    </table>
 </div>
 </body>
 <script src="./assets/js/main.config.js"></script>
@@ -39,7 +80,9 @@ and open the template in the editor.
     let vue = new Vue({
         el: '#app',
         data: {
+            ulr: "http://localhost:8080/br.com.poketrainners.api/api/",
             Player: {
+                PlayerId: 0,
                 Name: "Teste",
                 Pontuacao: 0,
                 Level: 1,
@@ -55,9 +98,11 @@ and open the template in the editor.
                 })
             },
             listar() {
-                req("player/").then(e => {
-                    
-                })
+                fetch(url + "player")
+                    .then(response => response.json())
+                    .then(data => {
+                        Listagem = data;
+                    });
             },
             excluir(id) {
                 req("player/", createRequest("DELETE", {id: id})).then(e => {

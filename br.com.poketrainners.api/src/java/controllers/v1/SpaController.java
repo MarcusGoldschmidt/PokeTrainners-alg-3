@@ -3,13 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers.v1;
+package controllers.v1;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
 
 /**
  *
  * @author marcus
  */
-public abstract class BaseController {
-   
-    
+@Path("/app")
+public class SpaController {
+    @Path("/")
+    @GET
+    public String Index() {
+        return "SS";
+    }
 }

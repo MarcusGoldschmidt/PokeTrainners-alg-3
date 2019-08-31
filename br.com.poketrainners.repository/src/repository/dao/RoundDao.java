@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class RoundDao extends BaseDao<Round> {
 
-    private final String TableName = "Player";
+    private final String TableName = "player";
     private final String TablePk = TableName + "Id";
 
     public RoundDao() {

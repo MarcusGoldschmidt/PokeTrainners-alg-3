@@ -8,7 +8,7 @@ package repository.dao;
 import infraestruture.helpers.GenerateSql;
 import infraestruture.helpers.PostgresConnection;
 import java.sql.Connection;
-import java.util.ArrayList;
+import java.util.List;
 import repository.interfaces.IBaseDao;
 
 /**
@@ -29,7 +29,7 @@ public abstract class BaseDao<T> implements IBaseDao<T> {
         this._generateSql = new GenerateSql<>(this.Type);
     }
     
-    public abstract ArrayList<T> Index();
+    public abstract List<T> Index();
 
     public abstract T Show(int id);
 

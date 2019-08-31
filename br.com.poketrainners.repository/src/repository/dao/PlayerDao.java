@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  */
 public class PlayerDao extends BaseDao<Player> {
 
-    private final String TableName = "Player";
+    private final String TableName = "player";
     private final String TablePk = TableName + "Id";
 
     public PlayerDao() {
@@ -25,11 +26,10 @@ public class PlayerDao extends BaseDao<Player> {
     }
 
     @Override
-    public ArrayList<Player> Index() {
-        System.out.println("Pesquisando...");    
+    public List<Player> Index() {
         String sql = "SELECT * FROM " + TableName;
         try {
-            ArrayList<Player> players = new ArrayList<>();
+            List<Player> players = new ArrayList<>();
             PreparedStatement stmt = this.connect.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
@@ -45,8 +45,6 @@ public class PlayerDao extends BaseDao<Player> {
                 player.setMoney(rs.getDouble("Money"));
                 players.add(player);
             }
-            
-            System.out.println("FOI");
 
             return players;
         } catch (SQLException e) {

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers.v1;
+package controllers.v1;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,7 +17,7 @@ public abstract class BaseCrudController<T> extends BaseController{
      *
      * @return
      */
-    public abstract ArrayList<T> Index();
+    public abstract List<T> Index();
     
     public abstract T Show(int id);
     
